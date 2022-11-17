@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../grau10/css/info.css">
+    <link href="../grau10/login.js">
+    <title>MGA-Informação</title>
+</head>
+<body>
+<?php
+
+require 'config.php';
+
+
+?>
+    <header class="cabeca">
+        <nav>
+            <a href="../grau10/Home.html" id="logo">
+                <img src="../grau10/IMG/MGA.png" alt="logo" width="250px" height="95px">
+            </a>
+        <div >
+            <a href="Catalogo.html" id="catalogo" >Catalogo</a>
+            <a href="../grau10/conosco.html" id="ajuda">Fale Conosco</a>
+            <a href="../grau10/login.html" id="login">Login</a> 
+        </div>
+        </nav>
+    </header>
+    <center> 
+        <nav class="cadastro">
+            <h1 id="titulo">INFORMAÇÕES DO USUARIO</h1><br><br>
+            <center>
+               <!-----Tag h1 para por no título----->
+<h2 id="sub-titulo">Lista de Usuários</h2>
+<!---Lista em forma de Tabela onde mostrará os cadastros-->
+<table border="1" cellspacing="40" bodercolor="" class="tabela">
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Sobrenome</th>
+		<th>Data de Nascimento</th>
+		<th>CPF</th>
+		<th>E-mail</th>
+		<th>Telefone</th>
+		<th>Senha</th>
+		<th>Ações</th>
+	</tr>
+	<?php foreach ($lista1 as $usuarios): ?>
+		<tr>
+			<td><?=$usuarios['id'];?></td>
+			<td><?=$usuarios['nome'];?></td>
+			<td><?=$usuarios['sobrenome'];?></td>
+			<td><?=$usuarios['dat_nasc'];?></td>
+			<td><?=$usuarios['cpf'];?></td>
+			<td><?=$usuarios['email'];?></td>
+			<td><?=$usuarios['telefone'];?></td>
+			<td><?=$usuarios['senha'];?></td>
+			<td>
+				
+			</td>
+		</tr>
+            <div>
+                <a href="editar.php?id=<?=$usuarios['id'];?>" id="tabela-botao">Editar</a>
+				<a href="excluirusuario.php?id=<?=$usuarios['id'];?>" id="tabela-botao">Excluir</a>
+            </div>
+	<?php endforeach; ?>
+</table>
+            </center>
+        </nav>
+    </center>
+</body>
+</html>
